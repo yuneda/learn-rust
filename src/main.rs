@@ -91,3 +91,46 @@ fn test_loops() {
       println!("For loop iteration: {}", i);
   }
 }
+
+#[test]
+fn test_functions() {
+  fn greet(name: &str) -> String {
+      format!("Hello, {}!", name)
+  }
+
+  let greeting = greet("Achmad");
+  println!("{}", greeting);
+
+  let result = add(5, 3);
+  println!("Sum: {}", result);
+
+  fn add(a: i32, b: i32) -> i32 {
+      a + b
+  }
+}
+
+#[test]
+fn test_structs() {
+  struct User {
+      name: String,
+      age: u8,
+  }
+
+  impl User {
+      fn new(name: &str, age: u8) -> Self {
+          User {
+              name: String::from(name),
+              age,
+          }
+      }
+
+      fn greet(&self) -> String {
+          format!("Hello, my name is {} and I am {} years old.", self.name, self.age)
+      }
+  }
+
+  let user = User::new("Achmad", 25);
+  println!("User name: {}", user.name);
+  println!("User age: {}", user.age);
+  println!("{}", user.greet());
+}
