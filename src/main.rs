@@ -1,8 +1,17 @@
-fn main() {
-  println!("Hello, world!");
-  println!("aba");
-  println!("pete");
+mod rest_api;
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
+    println!("Starting the REST API server...");
+    rest_api::run_server().await
 }
+
+
+// fn main() {
+//   println!("Hello, world!");
+//   println!("aba");
+//   println!("pete");
+// }
 
 #[test]
 fn hello_test() {
